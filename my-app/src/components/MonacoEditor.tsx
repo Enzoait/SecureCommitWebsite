@@ -1,41 +1,42 @@
 "use client";
-import React, { useEffect, useRef } from 'react';
-import * as monaco from 'monaco-editor';
+import Editor from "@monaco-editor/react";
+import { sampleCode } from "@/utils/sampleCode";
 
 export default function MonacoEditor() {
-  const editorContainer = useRef(null); 
-
-  useEffect(() => {
-    if (editorContainer.current) {
-      // Crée l'éditeur Monaco
-      monaco.editor.create(editorContainer.current, {
-        value: [
-          'function helloMonaco() {',
-          '  console.log("Hello, Monaco Editor!");',
-          '}'
-        ].join('\n'),
-        language: 'javascript',  
-        theme: 'vs-dark',        
-        automaticLayout: true    
-      });
-    }
-
-    return () => {
-      // Nettoyage quand le composant est démonté
-      if (editorContainer.current) {
-        monaco.editor.getModels().forEach(model => model.dispose());
-      }
-    };
-  }, []);
-
   return (
-    <div
-      ref={editorContainer}
-      style={{
-        height: '500px', 
-        width: '100%',
-        border: '1px solid #ccc',
-      }}
-    ></div>
+    <div className="h-[500px] w-full border-2 border-[#b15efa] rounded-sm overflow-hidden shadow-sm">
+      {/* Onglet style VS Code */}
+      <div className="bg-[#1e1e1e] text-white text-sm font-mono border-b border-[#333] flex items-center">
+        <div className="mt-2 px-2 py-2 border-t-2 border-t-[#b15efa] border-r border-r-[#333] flex items-center gap-2">
+          <img src="js.png" alt="JS icon" className="w-4 h-4" />
+          youtubeApi.js
+        </div>
+      </div>
+
+      {/* Zone de code */}
+      <Editor
+        height="100%"
+        defaultLanguage="javascript"
+        defaultValue={sampleCode}
+        theme="vs-dark"
+        options={{
+          readOnly: true,
+          domReadOnly: true,
+          minimap: { enabled: false },
+          scrollbar: {
+            vertical: "hidden",
+            horizontal: "hidden",
+            handleMouseWheel: false,
+            alwaysConsumeMouseWheel: false,
+          },
+          scrollBeyondLastLine: false,
+          lineNumbers: "off",
+          overviewRulerLanes: 0,
+          renderLineHighlight: "none",
+          cursorStyle: "line",
+          cursorBlinking: "solid",
+        }}
+      />
+    </div>
   );
-};
+}
