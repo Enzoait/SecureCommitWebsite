@@ -6,7 +6,7 @@ export default function MonacoEditor() {
   return (
     <div className="h-[500px] w-full border-2 border-[#b15efa] rounded-sm overflow-hidden shadow-sm">
       {/* Onglet style VS Code */}
-      <div className="bg-[#1e1e1e] text-white text-sm font-mono border-b border-[#333] flex items-center">
+      <div className="bg-background dark:bg-[#1e1e1e] text-[#1e1e1e] dark:text-white text-sm font-mono border-b border-[#333] flex items-center">
         <div className="mt-2 px-2 py-2 border-t-2 border-t-[#b15efa] border-r border-r-[#333] flex items-center gap-2">
           <img src="js.png" alt="JS icon" className="w-4 h-4" />
           youtubeApi.js
