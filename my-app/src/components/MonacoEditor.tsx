@@ -1,24 +1,36 @@
 "use client";
 import Editor from "@monaco-editor/react";
-import { sampleCode } from "@/utils/sampleCode";
+import { MonacoEditorTheme } from "@/constants/ThemeConstants";
+import { useTheme } from "next-themes";
 
-export default function MonacoEditor() {
+export default function MonacoEditor(props: {
+  tabTitle: string;
+  logoPath: string;
+  defaultLangage: string;
+  sampleCode: string;
+}) {
+  const { resolvedTheme } = useTheme();
+
   return (
-    <div className="h-[500px] w-full border-2 border-[#b15efa] rounded-sm overflow-hidden shadow-sm">
+    <div className="h-[500px] w-full pr-2 bg-background dark:bg-[#1e1e1e] border-2 border-[#b15efa] rounded-sm overflow-hidden shadow-sm">
       {/* Onglet style VS Code */}
       <div className="bg-background dark:bg-[#1e1e1e] text-[#1e1e1e] dark:text-white text-sm font-mono border-b border-[#333] flex items-center">
         <div className="mt-2 px-2 py-2 border-t-2 border-t-[#b15efa] border-r border-r-[#333] flex items-center gap-2">
-          <img src="js.png" alt="JS icon" className="w-4 h-4" />
-          youtubeApi.js
+          <img src={props.logoPath} alt="icon" className="w-4 h-4" />
+          {props.tabTitle}
         </div>
       </div>
 
       {/* Zone de code */}
       <Editor
         height="100%"
-        defaultLanguage="javascript"
-        defaultValue={sampleCode}
-        theme="vs-dark"
+        defaultLanguage={props.defaultLangage}
+        defaultValue={props.sampleCode}
+        theme={
+          resolvedTheme === "light"
+            ? MonacoEditorTheme.light
+            : MonacoEditorTheme.dark
+        }
         options={{
           readOnly: true,
           domReadOnly: true,
