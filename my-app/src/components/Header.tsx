@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ThemeToggle } from "./ToggleTheme";
+import Link from "next/link";
 
 export default function Header() {
   return (
@@ -8,12 +9,9 @@ export default function Header() {
         <div className="flex h-16 items-center justify-between">
           <div className="md:flex md:items-center md:gap-12">
             <a className="block text-[#b15efa]" href="#">
-              <Image
-                src="/logo.png"
-                alt="Home"
-                width={50}
-                height={50}
-              />
+              <Link href="/">
+                <Image src="/logo.png" alt="Home" width={50} height={50} />
+              </Link>
             </a>
           </div>
 

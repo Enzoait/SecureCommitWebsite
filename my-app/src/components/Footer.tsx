@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   var date = new Date();
@@ -9,7 +10,7 @@ export default function Footer() {
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="lg:flex lg:items-start lg:gap-8">
           <div>
-            <Image src="/logo.png" alt="Home" width={120} height={120}/>
+            <Image src="/logo.png" alt="Home" width={120} height={120} />
           </div>
 
           <div className="mt-8 grid grid-cols-2 gap-8 lg:mt-0 lg:grid-cols-5 lg:gap-y-16">
@@ -140,21 +141,21 @@ export default function Footer() {
             </p>
             <ul className="mt-8 flex flex-wrap justify-start gap-4 text-xs sm:mt-0 lg:justify-end">
               <li>
-                <a
-                  href="#"
-                  className="text-gray-500 transition hover:opacity-75 dark:text-gray-400"
+                <Link
+                  href="/terms"
+                  className="ml-2 text-gray-500 transition hover:opacity-75 dark:text-gray-400"
                 >
                   Terms & Conditions
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a
-                  href="#"
-                  className="text-gray-500 transition hover:opacity-75 dark:text-gray-400"
+                <Link
+                  href="/privacy"
+                  className="ml-2 text-gray-500 transition hover:opacity-75 dark:text-gray-400"
                 >
                   Privacy Policy
-                </a>
+                </Link>
               </li>
 
               <li>
