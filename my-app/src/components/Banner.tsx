@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Banner() {
   return (
     <section className="bg-white lg:grid lg:h-screen lg:place-content-center dark:bg-gray-900">
@@ -24,12 +26,13 @@ export default function Banner() {
           </p>
 
           <div className="mt-4 flex justify-center gap-4 sm:mt-6">
-            <a
+
+            <Link
+              href="/getting-started"
               className="inline-block rounded border border-[#b15efa] bg-[#b15efa] px-5 py-3 font-medium text-white shadow-sm transition-colors hover:opacity-75"
-              href="#"
             >
               Get Started
-            </a>
+            </Link>
 
             <a
               className="flex gap-2 rounded border border-gray-200 px-5 py-3 font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 hover:text-gray-900 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-white"

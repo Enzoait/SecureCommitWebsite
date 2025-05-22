@@ -17,13 +17,12 @@ export default function Header() {
             <nav aria-label="Global">
               <ul className="flex items-center gap-6 text-sm">
                 <li>
-                  <a
+                  <Link
+                    href="/about"
                     className="text-gray-900 hover:text-[#b15efa] transition dark:text-white dark:hover:text-[#b15efa]"
-                    href="#"
                   >
-                    {" "}
-                    About{" "}
-                  </a>
+                    About
+                  </Link>
                 </li>
                 <li>
                   <a

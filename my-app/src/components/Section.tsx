@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import CommandPalette from "./CommandPalette";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Info } from "lucide-react";
+import { JSX } from "react/jsx-runtime";
 
 const MonacoEditor = dynamic(() => import("../components/MonacoEditor"), {
   ssr: false,
@@ -11,12 +12,14 @@ const MonacoEditor = dynamic(() => import("../components/MonacoEditor"), {
 export default function Section(props: {
   textAlign: string;
   textTitle: string;
-  textContent: string;
+  textContent: JSX.Element;
   tabTitle?: string;
   logoPath?: string;
   defaultLangage?: string;
   sampleCode?: string;
-  tips: boolean
+  tips: boolean;
+  picture: boolean;
+  image?: JSX.Element;
 }) {
   return (
     <section>
@@ -48,21 +51,23 @@ export default function Section(props: {
               </div>
 
               <div>
-                <MonacoEditor
-                  tabTitle={props.tabTitle ? props.tabTitle : ""}
-                  logoPath={props.logoPath ? props.logoPath : ""}
-                  defaultLangage={
-                    props.defaultLangage ? props.defaultLangage : ""
-                  }
-                  sampleCode={props.sampleCode ? props.sampleCode : ""}
-                />
+                {props.picture == true ? (
+                  props.image
+                ) : (
+                  <MonacoEditor
+                    tabTitle={props.tabTitle ? props.tabTitle : ""}
+                    logoPath={props.logoPath ? props.logoPath : ""}
+                    defaultLangage={
+                      props.defaultLangage ? props.defaultLangage : ""
+                    }
+                    sampleCode={props.sampleCode ? props.sampleCode : ""}
+                  />
+                )}
               </div>
             </>
           ) : (
             <>
-              <div>
-                <CommandPalette />
-              </div>
+              <div>{props.picture ? props.image : <CommandPalette />}</div>
 
               <div>
                 <div className="max-w-lg md:max-w-none">
