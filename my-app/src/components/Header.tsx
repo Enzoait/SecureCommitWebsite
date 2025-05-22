@@ -8,11 +8,9 @@ export default function Header() {
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="md:flex md:items-center md:gap-12">
-            <a className="block text-[#b15efa]" href="#">
-              <Link href="/">
-                <Image src="/logo.png" alt="Home" width={50} height={50} />
-              </Link>
-            </a>
+            <Link href="/" className="block text-[#b15efa]">
+              <Image src="/logo.png" alt="Home" width={50} height={50} />
+            </Link>
           </div>
 
           <div className="hidden md:block">

@@ -11,6 +11,14 @@ export default function MonacoEditor(props: {
 }) {
   const { resolvedTheme } = useTheme();
 
+  const date = new Date();
+  const year = String(date.getFullYear()).slice(-2);
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  const yearMonthDay = `${month}-${day}-${year}`;
+
+  const time = date.toLocaleTimeString("fr-FR");
+
   return (
     <div className="h-[500px] w-full pr-2 bg-background dark:bg-[#1e1e1e] border-2 border-[#b15efa] rounded-sm overflow-hidden shadow-sm">
       {/* Onglet style VS Code */}
@@ -25,7 +33,9 @@ export default function MonacoEditor(props: {
       <Editor
         height="100%"
         defaultLanguage={props.defaultLangage}
-        defaultValue={props.sampleCode}
+        defaultValue={props.sampleCode
+          .replaceAll("{date}", yearMonthDay)
+          .replaceAll("{time}", time)}
         theme={
           resolvedTheme === "light"
             ? MonacoEditorTheme.light
