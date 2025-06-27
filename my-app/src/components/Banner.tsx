@@ -28,7 +28,7 @@ export default function Banner() {
           <div className="mt-4 flex justify-center gap-4 sm:mt-6">
 
             <Link
-              href="/getting-started"
+              href="/docs"
               className="inline-block rounded border border-[#b15efa] bg-[#b15efa] px-5 py-3 font-medium text-white shadow-sm transition-colors hover:opacity-75"
             >
               Get Started

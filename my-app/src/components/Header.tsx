@@ -25,49 +25,12 @@ export default function Header() {
                   </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
+                    href="/docs"
                     className="text-gray-900 hover:text-[#b15efa] transition dark:text-white dark:hover:text-[#b15efa]"
-                    href="#"
                   >
-                    {" "}
-                    Careers{" "}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="text-gray-900 hover:text-[#b15efa] transition dark:text-white dark:hover:text-[#b15efa]"
-                    href="#"
-                  >
-                    {" "}
-                    History{" "}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="text-gray-900 hover:text-[#b15efa] transition dark:text-white dark:hover:text-[#b15efa]"
-                    href="#"
-                  >
-                    {" "}
-                    Services{" "}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="text-gray-900 hover:text-[#b15efa] transition dark:text-white dark:hover:text-[#b15efa]"
-                    href="#"
-                  >
-                    {" "}
-                    Projects{" "}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="text-gray-900 hover:text-[#b15efa] transition dark:text-white dark:hover:text-[#b15efa]"
-                    href="#"
-                  >
-                    {" "}
-                    Blog{" "}
-                  </a>
+                    Documentation
+                  </Link>
                 </li>
               </ul>
             </nav>
